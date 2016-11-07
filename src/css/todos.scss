@@ -1,0 +1,14 @@
+.todos {
+  &__create-input {
+    margin: 0 auto 5px;
+    width: 300px;
+  }
+  &__create-button {
+    margin: 0 auto 20px;
+    display: block;
+  }
+}
+tr, th {
+  font-size: 20px;
+  text-align: center;
+}
