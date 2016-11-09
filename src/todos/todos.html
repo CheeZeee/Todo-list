@@ -2,8 +2,8 @@
   <a ui-sref="about" class="nav-link">About</a>
   <h2>ToDo App</h2>
 
-  <form>
-    <input class="form-control todos__create-input" placeholder="Enter what you need to do here" />
+  <form ng-submit="createTask()">
+    <input class="form-control todos__create-input" placeholder="Enter what you need to do" ng-model="taskInputField" />
     <button class="btn btn-success todos__create-button" name="button">Add Task</button>
     <table class="table table-striped">
       <tr>
@@ -12,8 +12,8 @@
         <th>Action</th>
       </tr>
       <tr ng-repeat="todo in todos">
-        <td><input type="checkbox" /></td>
-        <td><span class="todos__task">{{ todo.task }}</span></td>
+        <td><input type="checkbox" ng-checked="todo.isCompleted" ng-click="completedTaskClick(todo)"/></td>
+        <td><span class="todos__task" ng-class="{'todos__task--completed': todo.isCompleted}">{{ todo.task }}</span></td>
         <td>
           <button class="btn btn-info">Edit</button>
           <button class="btn btn-danger">Remove</button>
