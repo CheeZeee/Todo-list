@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export default function($scope) {
   let params = {
     taskInputField: false
@@ -38,6 +40,10 @@ export default function($scope) {
   $scope.onCancelClick = todo => {
     todo.isEditing = false;
   };
+
+  $scope.removeTask = taskToRemove => {
+    _.remove($scope.todos, todo => todo.task === taskToRemove.task);
+  }
 
   $scope.$watch('taskInputField', val => {
     if (!val && params.taskInputField) {
